@@ -9,8 +9,10 @@ const domain = process.env.APPSETTING_REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.APPSETTING_REACT_APP_AUTH0_CLIENT_ID;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-console.log("domain : "+domain);
-console.log("client id: "+clientId);
+console.log("APPSETTING_REACT_APP_AUTH0_DOMAIN : "+process.env.APPSETTING_REACT_APP_AUTH0_DOMAIN);
+console.log("APPSETTING_REACT_APP_AUTH0_CLIENT_ID: "+process.env.APPSETTING_REACT_APP_AUTH0_CLIENT_ID);
+console.log("REACT_APP_AUTH0_DOMAIN : "+process.env.REACT_APP_AUTH0_DOMAIN);
+console.log("REACT_APP_AUTH0_CLIENT_ID: "+process.env.REACT_APP_AUTH0_CLIENT_ID);
 root.render(
   <React.StrictMode>
     <Auth0Provider
