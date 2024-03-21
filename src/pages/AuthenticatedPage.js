@@ -12,7 +12,7 @@ const AuthenticatedPage = () => {
 
     return (
         isAuthenticated && (
-            <div>
+            <div className="head-div" style={{border: "1px solid green", height: "100vh"}}>
                 <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Navigation />}>

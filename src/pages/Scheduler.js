@@ -1,7 +1,13 @@
+import { CalendarPanel } from "../components/CalendarPanel";
+import { CoursesPanel } from "../components/CoursesPanel";
+import { RequirementsPanel } from "../components/RequirementsPanel";
+
 const Scheduler = () => {
     return  (
-        <div className="pages">
-            <h1>Scheduler Page</h1>
+        <div className="pages scheduler-page">
+            <RequirementsPanel/>
+            <CoursesPanel/>
+            <CalendarPanel/>
         </div>
         )
   };

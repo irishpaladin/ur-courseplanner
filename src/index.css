@@ -18,6 +18,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -27,10 +28,14 @@ code {
   margin-left: 7%;
   margin-right: 7%;
   width: 86%;
+  border: 1px solid green;
+  height: 86.5%;
 }
 
 .navigation-bar{
   padding-top: 20px;
+  border: 1px solid red;
+  height: 10%
 }
 
 .img-logo{
@@ -53,7 +58,7 @@ code {
   margin-left: 7%;
   margin-right: 7%;
   width: 86%;
-  height: 10px;
+  height: 1%;
   background-color: #31384D;
   border-radius: 5px;
 }
@@ -64,4 +69,85 @@ code {
 }
 .nav:hover{
   text-decoration: underline;
+}
+
+.border{
+  border: 1px solid red;
+}
+
+/* Scheduler Page */
+.scheduler-page{
+  display: grid;
+  grid-template-columns: 2fr 3fr 5fr;
+  column-gap: 10px;
+}
+.panel{
+  border: 1px solid pink;
+  height: 100%;
+  
+}
+.requirements-panel{
+}
+.courses-panel{
+}
+.calendar-panel{
+}
+.requirement-card{
+  background-color: aquamarine;
+  display:grid;
+  grid-template-columns: 9fr 1fr;
+  margin: 10px;
+  height: 90px;
+}
+.requirement-box{
+  border-style: solid;
+  border-color: #31384D;
+  border-width: 3px;
+  border-radius: 10px;
+}
+.requirement-description{
+  background-color: beige;
+  padding-left: 5px;
+  height: 60px;
+  display: flex;
+	align-items: flex-end;
+}
+.requirement-card-title{
+  font-family: LatoBold;
+  font-size: 16px;
+  margin: 1px;
+  padding:1px;
+}
+.requirement-card-course{
+  font-family: LatoRegular;
+  font-size: 14px;
+  margin: 1px;
+  padding:1px;
+}
+.requirement-card-active{
+  height: 100%;
+  background-color: bisque;
+  display: flex;
+  align-items: center;
+
+}
+.requirement-card-barcolor{
+  height :12px;
+  margin-top: 7px;
+}
+
+.requirement-card-barcolor p{
+  margin: 0px;
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-left: 4px;
+  font-size: 10px;
+  font-family: LatoBold;
+}
+.font-white{
+  color: white;
+}
+.arrow{
+  height: 75px;
+
 }
