@@ -7,15 +7,14 @@ const Navigation = () => {
   return (
     <>
       <div className="navigation-bar">
-        <table class="">
+        <table className="">
         <thead>
           <tr>
-            <td class="nav-logo"><Link className="nav-link" to="/"><img src={logo} className="img-logo" alt="logo" /></Link></td>
-            <td class="nav"><Link className="nav-link" to="/">Home</Link></td>
-            <td class="nav"><Link className="nav-link" to="/scheduler">Scheduler</Link></td>
-            <td class="nav"><Link className="nav-link" to="/alerts">Alerts</Link></td>
-            <td class="nav"><Link className="nav-link" to="/requirements">Requirements</Link></td>
-            <td class="nav"><a className="nav-link" href="" onClick={() => logout()}>Logout</a></td>
+            <td className="nav-logo"><Link className="nav-link" to="/"><img src={logo} className="img-logo" alt="logo" /></Link></td>
+            <td className="nav"><Link className="nav-link" to="/">Scheduler</Link></td>
+            <td className="nav"><Link className="nav-link" to="/alerts">Alerts</Link></td>
+            <td className="nav"><Link className="nav-link" to="/requirements">Requirements</Link></td>
+            <td className="nav"><a className="nav-link" href="" onClick={() => logout()}>Logout</a></td>
           </tr>
         </thead>
         </table>
