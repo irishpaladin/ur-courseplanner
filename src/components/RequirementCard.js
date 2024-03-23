@@ -14,9 +14,15 @@ export default function RequirementCard(props){
                     </div>
                 </div>
             </div>
-            <div className="requirement-card-active">
-                <img src={arrow} className="arrow" alt="active" />
-            </div>
+            {props.active? <ActiveElement/>: null}
+        </div>
+    )
+}
+
+const ActiveElement = () => {
+    return (
+        <div className="requirement-card-active">
+            <img src={arrow} className="arrow" alt="active" />
         </div>
     )
 }

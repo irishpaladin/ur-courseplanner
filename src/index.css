@@ -100,7 +100,7 @@ code {
 .requirement-box{
   border-style: solid;
   border-color: #31384D;
-  border-width: 3px;
+  border-width: 1px;
   border-radius: 10px;
 }
 .requirement-description{
