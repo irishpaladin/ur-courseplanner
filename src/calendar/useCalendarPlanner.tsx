@@ -16,7 +16,7 @@ export function useCalendarPlanner() {
   const { getEpgProps, getLayoutProps } = useEpg({
     channels: channelsData,
     epg: epgData,
-    itemHeight: 90,// days
+    itemHeight: 100,// days
     sidebarWidth: 80,
     dayWidth: 710,//time
     startDate,

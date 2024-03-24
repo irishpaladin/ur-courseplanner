@@ -8,7 +8,8 @@ import {
   TreeViewDataItem,
   TreeViewSearch
 } from '@patternfly/react-core';
-import { fetchCourses } from './useCourseList';
+import { fetchCourses } from '../useCourseList';
+import { CourseToolTip } from './CourseToolTip';
 export const CourseList: React.FunctionComponent = () => {
   const options = fetchCourses;
 
@@ -48,9 +49,12 @@ export const CourseList: React.FunctionComponent = () => {
   };
   const toolbar = (
     <Toolbar style={{ padding: 0, width: "100%" }}>
-      <ToolbarContent style={{ padding: 0, width: "100%"}}>
+      <ToolbarContent style={{ padding: 0, width: "100%" }}>
         <ToolbarItem widths={{ default: '100%' }}>
+          <div className="search-bar">
           <TreeViewSearch onSearch={onSearch} id="input-search" name="search-input" aria-label="Search input example" />
+          <CourseToolTip/>
+          </div>
         </ToolbarItem>
       </ToolbarContent>
     </Toolbar>

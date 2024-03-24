@@ -16,7 +16,6 @@ export const ChannelItem = ({ isVerticalMode, channel }: IChannelItem) => {
           as={"span"}
           position={"relative"}
           zIndex={2}
-          color="#5DDADB"
         >
           {day}
         </Text>
