@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from '../components/Navigation';
 import Scheduler from './Scheduler';
 import Alerts from './Alerts';
-import Requirements from './Requirements';
 import NoPage from './NoPage';
 
 const AuthenticatedPage = () => {
@@ -17,7 +16,6 @@ const AuthenticatedPage = () => {
                     <Route path="/" element={<Navigation />}>
                     <Route index element={<Scheduler />} />
                     <Route path="alerts" element={<Alerts />} />
-                    <Route path="requirements" element={<Requirements />} />
                     <Route path="*" element={<NoPage />} />
                     </Route>
                 </Routes>

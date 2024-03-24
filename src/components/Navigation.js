@@ -13,7 +13,6 @@ const Navigation = () => {
             <td className="nav-logo"><Link className="nav-link" to="/"><img src={logo} className="img-logo" alt="logo" /></Link></td>
             <td className="nav"><Link className="nav-link" to="/">Scheduler</Link></td>
             <td className="nav"><Link className="nav-link" to="/alerts">Alerts</Link></td>
-            <td className="nav"><Link className="nav-link" to="/requirements">Requirements</Link></td>
             <td className="nav"><a className="nav-link" href="" onClick={() => logout()}>Logout</a></td>
           </tr>
         </thead>
