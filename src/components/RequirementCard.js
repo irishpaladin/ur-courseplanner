@@ -5,7 +5,7 @@ import BarStatus from './BarStatus';
 export default function RequirementCard(props){
     return(
         <div className="requirement-card">
-            <div className="requirement-box">
+            <div className="requirement-box" style={{borderWidth: props.active? '3px': '1px'}}>
                 <BarStatus status = {props.status}/>
                 <div className="requirement-description">
                     <div>

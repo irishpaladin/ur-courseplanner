@@ -1,20 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { SampleComponent } from '../components/sampleComponent';
+import { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function SampleService() {
+function FetchUserdata() {
 
     const [data, setData] = useState(null);
+    const { user } = useAuth0();
 
+    //HTTP request to save/retrieve useris from database
     useEffect(() => {
-        fetch('https://urcourseplannerbff.azurewebsites.net/WeatherForecast')
-            .then(response => response.json())
-            .then(json => setData(json))
-            .catch(error => console.error(error));
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subClaim: user.sub })
+        }
+        fetch('https://urcourseplannerbff.azurewebsites.net/User', requestOptions)
+            .then(async response => {
+                const isJson = response.headers.get('content-type')?.includes('application/json');
+                const data = isJson && await response.json();
+
+                // check for error response
+                if (!response.ok) {
+                    // get error message from body or default to response status
+                    const error = (data && data.message) || response.status;
+                    return Promise.reject(error);
+                }
+
+                setData({ data })
+            })
+            .catch(error => {
+                this.setState({ errorMessage: error.toString() });
+                console.error('Error retrieivng user data!', error);
+            });
     }, []);
 
     return (
-        <SampleComponent data={data}/>
+        <>{data}</>
     )
 }
 
-export default SampleService;
+export default FetchUser;
