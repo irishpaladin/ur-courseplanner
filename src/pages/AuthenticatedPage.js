@@ -8,7 +8,6 @@ import { UserContextProvider } from '../context/UserContext';
 
 const AuthenticatedPage = () => {
     const { isAuthenticated } = useAuth0();
-
     return (
         isAuthenticated && (
             <UserContextProvider>
