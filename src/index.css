@@ -24,6 +24,93 @@ code {
     monospace;
 }
 
+
+/* welcome page */
+
+
+.title {
+  font-size: 2rem;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.description {
+  position:sticky;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.0;
+}
+
+.get-started-button {
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #1d1963;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.get-started-button:hover {
+  background-color: #45a049;
+}
+
+.already-account-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.sign-in-text {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.welcome-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-image: url('/src/assets/background.png');
+  height:100vh;
+  width:100vw;
+  background-repeat: no-repeat;
+  background-size:auto;
+  background-position: center;
+  padding: 20px;
+  text-align:left;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.maindescription{
+  margin-left: 10%;
+  margin-right: 40%;
+  margin-top: 25%;
+}
+
+.top-left-image {
+  width: 100%; 
+  padding: 20px 30px 20px 15px;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side-image {
+  max-width: auto;
+  height: auto;
+  position:sticky;
+}
+
+/*======================*/
+
 .pages{
   margin-left: 7%;
   margin-right: 7%;
@@ -209,4 +296,5 @@ code {
   margin: auto;
   padding: 8px 5px 0 0;
 }
+
 
