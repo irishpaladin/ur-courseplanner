@@ -1,9 +1,18 @@
+import { CalendarPanel } from "../components/CalendarPanel";
+import { CoursesPanel } from "../components/CoursesPanel";
+import { RequirementsPanel } from "../components/RequirementsPanel";
+import { RequirementsContextProvider } from "../context/RequirementsContext";
+
 const Scheduler = () => {
-    return  (
-        <div className="pages">
-            <h1>Scheduler Page</h1>
-        </div>
-        )
-  };
-  
+    return (
+        <RequirementsContextProvider>
+            <div className="pages scheduler-page">
+                <RequirementsPanel />
+                <CoursesPanel />
+                <CalendarPanel />
+            </div>
+        </RequirementsContextProvider>
+    )
+};
+
 export default Scheduler;
