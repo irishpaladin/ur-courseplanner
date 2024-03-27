@@ -54,7 +54,6 @@ export const RequirementsPanel = () => {
                     }))
                 }
             </div>
-            <CoursesPanel />
         </div>
     )
 }

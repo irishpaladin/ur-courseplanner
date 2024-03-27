@@ -1,7 +1,6 @@
 
 import { TabbedCourses } from "../courses/components/TabbedCourses"
 import { SaveScheduleButton } from "./SaveScheduleButton"
-import { CalendarPanel } from "../components/CalendarPanel";
 
 export const CoursesPanel = () => {
     return (
@@ -12,7 +11,6 @@ export const CoursesPanel = () => {
                     <SaveScheduleButton />
                 </div>
             </div>
-            <CalendarPanel/>
         </div>
     )
 }

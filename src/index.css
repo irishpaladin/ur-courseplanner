@@ -72,23 +72,17 @@ code {
 .requirements-container{
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 2fr 8fr;
-  column-gap: 10px;
 }
 .courses-container{
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 3fr 5fr;
-  column-gap: 10px;
 }
 
 /* Scheduler Page */
 .scheduler-page{
-  /* display: grid;
+  display: grid;
   grid-template-columns: 2fr 3fr 5fr;
-  column-gap: 10px; */
+  column-gap: 10px;
 }
 .panel{
   height: 100%;
