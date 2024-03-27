@@ -6,7 +6,7 @@ import rightImage from "../assets/homepage-image.png";
 const WelcomePage = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-  return !isAuthenticated && (
+  return (!isAuthenticated && (
     <div className="app-container welcome-page">
       <div className="content">
         <div className="left-section">
@@ -25,7 +25,7 @@ const WelcomePage = () => {
         </div>
       </div>
     </div>
-  );
+  ));
 }
 
 export default WelcomePage;
