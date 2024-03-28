@@ -24,6 +24,124 @@ code {
     monospace;
 }
 
+/* welcome page */
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  justify-content: start;
+  align-items: self-start;
+  width: 80%;
+}
+
+.left-section {
+  flex: 1;
+  margin-top: 0px ;
+  padding-top: 0px;
+  text-align: left;
+}
+
+.top-left-image {
+
+  padding-bottom: 120px;
+  width: 300px; /* Adjust size as needed */
+}
+
+.title {
+  font-size: 4rem;
+  color: #31384D;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.3rem;
+  color: #31384D;
+  margin-bottom: 30px;
+  margin-right: 260px;
+  line-height: 1.5;
+}
+
+.get-started-button {
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: #31384D;
+  border: 2px solid #31384D;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width:220px;
+  height:65px
+}
+
+.get-started-button:hover {
+  background-color: #fff;
+  color: #31384D;
+  box-sizing: border-box;
+  border: 1px solid #31384D;
+}
+
+
+.already-account-text {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.sign-in-text {
+  color: #007bff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.welcome-page {
+  display:flex ;
+  background-image: url('/src/assets/background.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /* padding: 40px; */
+  /* width: 100vh; */
+  background-position: center;
+
+}
+
+.sign-in-text:hover {
+  color: #0056b3;
+}
+
+.right-section {
+  flex: 1;
+  padding: 20px;
+  padding-right: 0;
+  text-align: center;
+}
+
+.right-side-image {
+  width: 100%;
+  display:block;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+    padding: 20px 0;
+  }
+}
+
+/*======================*/
+
 .pages{
   margin-left: 7%;
   margin-right: 7%;
