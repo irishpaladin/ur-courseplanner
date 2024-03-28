@@ -1,7 +1,7 @@
 import { format} from "date-fns";
 import { epgCalendarChannels } from "./epg-channels";
 import { EVENTS } from "./epgs";
-
+import { RequirementsContext } from "../../context/RequirementsContext";
 export const getToday = ({
   date = "2022-04-19",
   formatType = "yyyy-MM-dd",

@@ -6,7 +6,7 @@ export default function RequirementCard(props){
     return(
         <div className="requirement-card">
             <div className="requirement-box" style={{borderWidth: props.active? '3px': '1px'}}>
-                <BarStatus status = {props.status}/>
+                <BarStatus status = {"completed"}/>
                 <div className="requirement-description">
                     <div>
                         <p className="requirement-card-title">{props.title}</p>

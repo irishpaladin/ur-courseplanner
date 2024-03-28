@@ -8,7 +8,7 @@ const Scheduler = () => {
         <RequirementsContextProvider>
             <div className="pages scheduler-page">
                 <RequirementsPanel />
-                <CoursesPanel />
+                {/* <CoursesPanel /> */}
                 <CalendarPanel />
             </div>
         </RequirementsContextProvider>
