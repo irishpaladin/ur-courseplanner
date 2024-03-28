@@ -12,9 +12,11 @@ const WelcomePage = () => {
         <div className="left-section">
           <img src={leftImage} alt="Top Left Image" className="top-left-image" />
           <h1 className="title"><b>Easy Planning</b></h1>
-          <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan. lacus vel facilisis.</p>
+          <p className="description">
+            Simplify your academic journey with our intuitive tools. Plan your schedule effortlessly and stay organized throughout your educational adventure. Let's make planning fun!"
+          </p>
           <button className="get-started-button" onClick={() => loginWithRedirect()}>
-            GET STARTED
+            <p>GET STARTED</p>
           </button>
           <p className="already-account-text">
             Already have an account? <span className="sign-in-text" onClick={() => loginWithRedirect()}>Sign In</span>
