@@ -17,6 +17,7 @@ import { RequirementType } from "./types"
 interface TabbedCoursesProps {
   requirement: RequirementType; // Define the type of your requirement prop
 }
+
 export const CourseList: React.FunctionComponent<TabbedCoursesProps> = ({ requirement }) => {
   if (!requirement || !requirement.requirement_details) {
     // Return a message or component indicating that the requirement data is not available
@@ -27,6 +28,7 @@ export const CourseList: React.FunctionComponent<TabbedCoursesProps> = ({ requir
   const [activeItems, setActiveItems] = React.useState(null);
   const [filteredItems, setFilteredItems] = React.useState(options);
   const [isFiltered, setIsFiltered] = React.useState(false);
+  const [sectionTimeVisibility, setSectionTimeVisibility] = useState<{ [key: string]: boolean }>({}); // State to manage section time visibility
 
   const onSelect = (_event: React.MouseEvent, item: any) => {
     // Ignore folders for selection
@@ -44,6 +46,7 @@ export const CourseList: React.FunctionComponent<TabbedCoursesProps> = ({ requir
       setIsFiltered(true);
     }
   };
+
   const filterItems = (item: any, input: string) => {
     if (item.coursecatalog_name.toLowerCase().includes(input)) {
       return true;
@@ -53,18 +56,13 @@ export const CourseList: React.FunctionComponent<TabbedCoursesProps> = ({ requir
     }
     return false;
   };
-
-  const exportData = (data: any) => {
-
-    // Implement your export logic here
-    const ev = {
-      id: data.sectionschedule_id
-
-    }
-    console.log(data);
-    // Example: You can send the data to another component, API, or perform any action you need
+  const toggleSectionTime = (sectionId: number) => {
+    const idString = sectionId.toString(); // Convert the section ID to a string
+    setSectionTimeVisibility(prevState => ({
+      ...prevState,
+      [idString]: !prevState[idString] // Toggle visibility for the selected section
+    }));
   };
-
 
   const toolbar = (
     <Toolbar style={{ padding: 0, width: "100%" }}>
@@ -78,52 +76,71 @@ export const CourseList: React.FunctionComponent<TabbedCoursesProps> = ({ requir
       </ToolbarContent>
     </Toolbar>
   );
-  console.log("courselist:", requirement);
   return (
-<div>
-  {toolbar}
-  <ul>
-    <ul>
-      <div className='courseName'>
-        {requirement.requirement_details.map((item, index) => (
-          <li key={index} onClick={() => onSelect(null, item)}>
-            <div className='coursesubjectname'>{item.coursesubject_name}</div>
-            {item.coursecatalogs.map((it) => (
-              <ul>
-                <div className='courseDetails'>
-                  <li>Course Name: {it.coursecatalog_name}</li>
-                  <li>Course Number: {it.coursecatalog_number}</li>
-                  
-                  {/* Check if sections exist */}
-                  {it.sections && it.sections.length > 0 ? (
-                    it.sections.map((i) => (
-                      <ul>
-                        <div className='courseTime'>
-                          
-                          <li>Course Term: {i.coursesection_term}</li>
-                          <li>Course Year: {i.coursesection_year}</li>
-                          <li>Max Seat: {i.coursesection_maxseat}</li>
-
-                          {i.schedule.map((j) => (
-                            <ul className='coursesectionTime' onClick={() => exportData(j)}>
-                              <li>Section No: {j.sectionschedule_id}</li>
-                            </ul>
-                          ))}
-                        </div>
-                      </ul>
-                    ))
-                  ) : (
-                    <div>No available sections</div>
-                  )}
-                </div>
-              </ul>
+    <div>
+      {toolbar}
+      <ul>
+        <ul>
+          <div className='courseName'>
+            {requirement.requirement_details.map((item, index) => (
+              <li key={index} onClick={() => onSelect(null, item)}>
+                <div className='coursesubjectname'>{item.coursesubject_name}</div>
+                {item.coursecatalogs.map((it) => (
+                  <ul>
+                    <div className='courseDetails'>
+                      <li>Course Name: {it.coursecatalog_name}</li>
+                      <li>Course Number: {it.coursecatalog_number}</li>
+                      
+                      {/* Check if sections exist */}
+                      {it.sections && it.sections.length > 0 ? (
+                        it.sections.map((i) => (
+                          <ul>
+                            <div className='courseTime'>
+                              
+                              <li>Course Term: {i.coursesection_term}</li>
+                              <li>Course Year: {i.coursesection_year}</li>
+                              <li>Max Seat: {i.coursesection_maxseat}</li>
+  
+                              {i.schedule.map((j) => (
+                                <ul id="sec" className='coursesectionTime' onClick={() => toggleSectionTime(j.sectionschedule_id)}>
+                                  <li>Section No: {j.sectionschedule_id}</li>
+                                  {sectionTimeVisibility[j.sectionschedule_id.toString()] && ( // Show section time if showSectionTime is true
+                                    <div className=''>
+                                      <li>Class starts: {j.sectionschedule_starttime}</li>
+                                      <li>class end: {j.sectionschedule_endtime}</li>
+                                      {j.sectionschedule_day==1 && (
+                                        <li>Class is on Monday</li>
+                                      )}
+                                      {j.sectionschedule_day==2 && (
+                                        <li>Class is on Tuesday</li>
+                                      )}
+                                      {j.sectionschedule_day==3 && (
+                                        <li>Class is on Wednesday</li>
+                                      )}
+                                      {j.sectionschedule_day==4 && (
+                                        <li>Class is on Thursday</li>
+                                      )}
+                                      {j.sectionschedule_day==5 && (
+                                        <li>Class is on Friday</li>
+                                      )}
+                                    </div>
+                                  )}
+                                </ul>
+                              ))}
+                            </div>
+                          </ul>
+                        ))
+                      ) : (
+                        <div>No available sections</div>
+                      )}
+                    </div>
+                  </ul>
+                ))}
+              </li>
             ))}
-          </li>
-        ))}
-      </div>
-    </ul>
-  </ul>
-</div>
-
+          </div>
+        </ul>
+      </ul>
+    </div>
   );
 };

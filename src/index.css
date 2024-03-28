@@ -80,9 +80,7 @@ code {
 
 /* Scheduler Page */
 .scheduler-page{
-  display: grid;
-  grid-template-columns: 3fr 5fr;
-  column-gap: 10px;
+
 }
 .panel{
   height: 100%;
@@ -239,4 +237,9 @@ height: 600px;
 .coursesectionTime:hover{
   opacity: 0.8;
 }
-
+.hiddensectioninfo{
+  display: none;
+}
+.showsectioninfo{
+  display: block;
+}

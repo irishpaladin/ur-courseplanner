@@ -8,8 +8,6 @@ const Scheduler = () => {
         <RequirementsContextProvider>
             <div className="pages scheduler-page">
                 <RequirementsPanel />
-                {/* <CoursesPanel /> */}
-                <CalendarPanel />
             </div>
         </RequirementsContextProvider>
     )

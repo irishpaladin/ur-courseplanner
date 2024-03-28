@@ -7,11 +7,7 @@ export const CoursesPanel = ({requirement}) => {
         <div className="courses-container">
             <div className="courses-panel panel" style={{ fontSize: "20px", overflowY: "auto" }}>
                 <div className="course-panel-content ">
-                {
-                    //for testing
-                
-                    console.log(requirement)
-                }
+
                     <TabbedCourses requirement={requirement}/>
                     <SaveScheduleButton />
                 </div>

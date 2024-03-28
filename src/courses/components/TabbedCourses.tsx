@@ -22,7 +22,6 @@ export const TabbedCourses: React.FunctionComponent<TabbedCoursesProps> = ({requ
   const tooltip = (
     <Tooltip content="This is where filtered courses are placed" />
   );
-  console.log("tabbedcourse requirements:",requirement)
   return (
     <div>
       <Tabs
@@ -35,9 +34,7 @@ export const TabbedCourses: React.FunctionComponent<TabbedCoursesProps> = ({requ
         <Tab eventKey={0} title={<TabTitleText>Course List</TabTitleText>} aria-label="Box light variation content - users">
           <CourseList requirement={requirement}/>
         </Tab>
-        <Tab eventKey={1} title={<TabTitleText>Filtered Course</TabTitleText>} tooltip={tooltip}>
-          <FilteredCourseList/>
-        </Tab>
+
       </Tabs>
     </div>
   );
