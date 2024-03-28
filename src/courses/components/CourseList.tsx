@@ -1,16 +1,13 @@
 import * as React from 'react';
-import { useState, useContext, useCallback } from "react";
+import { useState} from "react";
 
 import "@patternfly/react-core/dist/styles/base.css";
 import {
   Toolbar,
   ToolbarContent,
   ToolbarItem,
-  TreeView,
-  TreeViewDataItem,
   TreeViewSearch
 } from '@patternfly/react-core';
-import { fetchCourses } from '../useCourseList';
 import { CourseToolTip } from './CourseToolTip';
 import { RequirementType } from "./types"
 
@@ -19,16 +16,17 @@ interface TabbedCoursesProps {
 }
 
 export const CourseList: React.FunctionComponent<TabbedCoursesProps> = ({ requirement }) => {
-  if (!requirement || !requirement.requirement_details) {
-    // Return a message or component indicating that the requirement data is not available
-    return <div>No course catalogs available</div>;
-  }
   const options = requirement.requirement_details;
 
   const [activeItems, setActiveItems] = React.useState(null);
   const [filteredItems, setFilteredItems] = React.useState(options);
   const [isFiltered, setIsFiltered] = React.useState(false);
   const [sectionTimeVisibility, setSectionTimeVisibility] = useState<{ [key: string]: boolean }>({}); // State to manage section time visibility
+  if (!requirement || !requirement.requirement_details) {
+    // Return a message or component indicating that the requirement data is not available
+    return <div>No course catalogs available</div>;
+  }
+
 
   const onSelect = (_event: React.MouseEvent, item: any) => {
     // Ignore folders for selection
@@ -85,24 +83,24 @@ export const CourseList: React.FunctionComponent<TabbedCoursesProps> = ({ requir
             {requirement.requirement_details.map((item, index) => (
               <li key={index} onClick={() => onSelect(null, item)}>
                 <div className='coursesubjectname'>{item.coursesubject_name}</div>
-                {item.coursecatalogs.map((it) => (
-                  <ul>
+                {item.coursecatalogs.map((it, index) => (
+                  <ul key={index}>
                     <div className='courseDetails'>
                       <li>Course Name: {it.coursecatalog_name}</li>
                       <li>Course Number: {it.coursecatalog_number}</li>
                       
                       {/* Check if sections exist */}
                       {it.sections && it.sections.length > 0 ? (
-                        it.sections.map((i) => (
-                          <ul>
+                        it.sections.map((i,index) => (
+                          <ul key={index}>
                             <div className='courseTime'>
                               
                               <li>Course Term: {i.coursesection_term}</li>
                               <li>Course Year: {i.coursesection_year}</li>
                               <li>Max Seat: {i.coursesection_maxseat}</li>
   
-                              {i.schedule.map((j) => (
-                                <ul id="sec" className='coursesectionTime' onClick={() => toggleSectionTime(j.sectionschedule_id)}>
+                              {i.schedule.map((j, index) => (
+                                <ul id="sec" key = {index} className='coursesectionTime' onClick={() => toggleSectionTime(j.sectionschedule_id)}>
                                   <li>Section No: {j.sectionschedule_id}</li>
                                   {sectionTimeVisibility[j.sectionschedule_id.toString()] && ( // Show section time if showSectionTime is true
                                     <div className=''>
