@@ -4,14 +4,12 @@ import Navigation from '../components/Navigation';
 import Scheduler from './Scheduler';
 import Alerts from './Alerts';
 import NoPage from './NoPage';
-import { UserContextProvider } from '../context/UserContext';
 
 const AuthenticatedPage = () => {
     const { isAuthenticated } = useAuth0();
     return (
         isAuthenticated && (
-            <UserContextProvider>
-                <div className="head-div" style={{ border: "1px solid green", height: "100vh" }}>
+                <div className="head-div" style={{height: "100vh" }}>
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<Navigation />}>
@@ -22,7 +20,7 @@ const AuthenticatedPage = () => {
                         </Routes>
                     </BrowserRouter>
                 </div>
-            </UserContextProvider>
+
         )
     )
 }

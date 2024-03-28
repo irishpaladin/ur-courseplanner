@@ -2,12 +2,13 @@
 import { TabbedCourses } from "../courses/components/TabbedCourses"
 import { SaveScheduleButton } from "./SaveScheduleButton"
 
-export const CoursesPanel = () => {
+export const CoursesPanel = ({requirement}) => {
     return (
         <div className="courses-container">
             <div className="courses-panel panel" style={{ fontSize: "20px", overflowY: "auto" }}>
-                <div className="course-panel-content">
-                    <TabbedCourses />
+                <div className="course-panel-content ">
+
+                    <TabbedCourses requirement={requirement}/>
                     <SaveScheduleButton />
                 </div>
             </div>

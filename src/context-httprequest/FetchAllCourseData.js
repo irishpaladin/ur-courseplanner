@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-export function FetchAllCourseData() {
+export function FetchAllCourseData(props) {
     const [data, setData] = useState([]);
     //HTTP request to save/retrieve useris from database
     useEffect(() => {
-        console.log('FetchingAllCoursesData...');
-        fetch(`https://urcourseplannerbff.azurewebsites.net/Course/All`)
+        
+        fetch(`https://urcourseplannerbff.azurewebsites.net/Course/CourseDetailsUser(${props})`)
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json');
                 const data = isJson && await response.json();

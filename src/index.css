@@ -198,14 +198,13 @@ code {
 
 /* Scheduler Page */
 .scheduler-page{
-  display: grid;
-  grid-template-columns: 2fr 3fr 5fr;
-  column-gap: 10px;
+
 }
 .panel{
   height: 100%;
   padding-top: 10px;
   overflow-y: auto;
+  /* display: flex; */
 }
 .requirement-card{
   display:grid;
@@ -277,7 +276,7 @@ code {
 
 /* course planel */
 .courses-panel{
-
+height: 600px;
 }
 .courses-panel .course-panel-content{
   border: 1px solid #31384D;
@@ -326,4 +325,39 @@ code {
   display: block;
   margin: auto;
   padding: 8px 5px 0 0;
+}
+.courseName{
+  font-family: LatoRegular;
+  padding: 5px;
+}
+.coursesubjectname{
+  padding: 5px;
+    font-family: 'LatoBold';
+    border: 2px solid #31384d;
+    border-radius: 10px;
+}
+.courseDetails{
+  padding: 5px;
+  display: inline;
+}
+.courseTime{
+  padding: 5px;
+    /* display: inline; */
+    border: 2px solid #31384d;
+    border-radius: 10px;
+}
+.coursesectionTime{
+  padding: 5px;
+  /* display: inline; */
+  border: 2px solid #31384d;
+  border-radius: 10px;
+}
+.coursesectionTime:hover{
+  opacity: 0.8;
+}
+.hiddensectioninfo{
+  display: none;
+}
+.showsectioninfo{
+  display: block;
 }

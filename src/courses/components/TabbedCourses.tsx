@@ -3,9 +3,11 @@ import "@patternfly/react-core/dist/styles/base.css";
 import * as React from 'react';
 import { Tabs, Tab, TabTitleText, Tooltip } from '@patternfly/react-core';
 import { CourseList } from "./CourseList";
-import { FilteredCourseList } from "./FilteredCourseList";
-
-export const TabbedCourses: React.FunctionComponent = () => {
+import {RequirementType} from "./types"
+interface TabbedCoursesProps {
+  requirement: RequirementType; // Define the type of your requirement prop
+}
+export const TabbedCourses: React.FunctionComponent<TabbedCoursesProps> = ({requirement}) => {
   const [activeTabKey, setActiveTabKey] = React.useState<string | number>(0);
 
   // Toggle currently active tab
@@ -29,11 +31,9 @@ export const TabbedCourses: React.FunctionComponent = () => {
         role="region"
       >
         <Tab eventKey={0} title={<TabTitleText>Course List</TabTitleText>} aria-label="Box light variation content - users">
-          <CourseList/>
+          <CourseList requirement={requirement}/>
         </Tab>
-        <Tab eventKey={1} title={<TabTitleText>Filtered Course</TabTitleText>} tooltip={tooltip}>
-          <FilteredCourseList/>
-        </Tab>
+
       </Tabs>
     </div>
   );
