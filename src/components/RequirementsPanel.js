@@ -2,7 +2,7 @@ import RequirementCard from "./RequirementCard"
 import { CoursesPanel } from "../components/CoursesPanel";
 import { useState, useContext, useCallback } from "react";
 import { UserContext } from "../context/UserContext";
-import { RequirementsContext } from "../context/RequirementsContext";
+//import { RequirementsContext } from "../context/RequirementsContext";
 import { FetchRequirementDataByUserId } from "../context-httprequest/FetchRequirementDataByUserId";
 
 export const RequirementsPanel = () => {
@@ -10,27 +10,29 @@ export const RequirementsPanel = () => {
     setUserId(1);
 
     const [activeElementId, setActiveElement] = useState(-1);
-    const {  requirements, setRequirements, activeRequirementId, setActiveRequriementId } = useContext(RequirementsContext);
+    let requirementDetails = null;
+    //const {  requirements, setRequirements, activeRequirementId, setActiveRequriementId } = useContext(RequirementsContext);
     const updateActiveElement = (id) => {
         console.log("you clicked!"); 
         setActiveElement(activeElementId !== id ? id : -1);
-        setActiveRequriementId(activeElementId);
+        //setActiveRequriementId(activeElementId);
     }
     const requirementsList = useCallback(() => {
         let r = FetchRequirementDataByUserId(userId);
         if (r != null) {
-            setRequirements(r.data);
-            return r?.data?.map(function (requirement) {
-                if (activeElementId === -1) updateActiveElement(requirement.requirement_id);
+            //setRequirements(r.data);
+            requirementDetails = r.data;
+            return r?.data?.map((requirement, index) => {
+                //if (activeElementId === -1) updateActiveElement(index);
                 return <div
-                    key={requirement.requirement_id}
-                    onClick={() => updateActiveElement(requirement.requirement_id)}>
+                    key={index}
+                    onClick={() => updateActiveElement(index)}>
                     <RequirementCard
-                        id={requirement.requirement_id}
+                        id={index}
                         title={requirement.requirement_name}
                         course={"CS 330 - Lecture 001 S/24"}
                         status={requirement.requirement_status}
-                        active={requirement.requirement_id === activeElementId}
+                        active={index === activeElementId}
                     />
                 </div>
             })
@@ -47,13 +49,18 @@ export const RequirementsPanel = () => {
                 {requirementsList()}
                 {
                     //for testing
-                    console.log(JSON.stringify({
-                        u: {userId},
-                        r: {requirements}, 
-                        Ar: activeRequirementId,
-                    }))
+                    // console.log(JSON.stringify({
+                    //     u: {userId},
+                    //     r: {requirements}, 
+                    //     Ar: activeRequirementId,
+                    // }))
                 }
             </div>
+            {
+                //for testing
+                    console.log(requirementDetails)
+            }
+            <CoursesPanel requirementDetails={requirementDetails} activeElementId={activeElementId}/>
         </div>
     )
 }

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import {mockData} from "./mockdata";
 
 export function FetchAllCourseData() {
+    console.log(mockData);
     const [data, setData] = useState([]);
     //HTTP request to save/retrieve useris from database
     useEffect(() => {
