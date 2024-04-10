@@ -48,10 +48,11 @@ export function transformCourseDetails(props:Array<ICoursesSubject>){
                             <EyesActionButton/>
                         ),
                         children: (
-                            cc.sections.map((s) => {
+                            cc.sections.map((s,index) => {
+                                var lecturenumber = index+1;
                                 return {
-                                    name: "Lecture " + s.coursesection_number,
-                                    id: s.labsection_id?.toString()
+                                    name: "Lecture " + lecturenumber,
+                                    id: s.coursesection_id?.toString()
                                 }
                             })
                         )
