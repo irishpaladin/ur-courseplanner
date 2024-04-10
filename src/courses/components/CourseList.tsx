@@ -48,25 +48,37 @@ interface IProps{
   requiirement_status: Int16Array
 }
 
-// interface IProps {
-//   courseList: IRequriements
-// };
+function display() {
+  console.log("Rendering CourseList");
+  return 1;
+}
 export const CourseList: React.FunctionComponent = (props: IProps) => {
+  let displayconsole = false;
   console.log("I am in CourseList");
-  console.log(props);
-  console.log(props.requirement_details);
+  if(displayconsole)console.log({name:"props", props: props});
+  if(displayconsole)console.log({name:"reqdeets", propsreq: props.requirement_details});
   const options = transformCourseDetails(props.requirement_details);
-  console.log(options);
+  if(displayconsole)console.log({name:"options",options:options});
   const options2 = fetchCourses;
-  console.log(options2);
+  if(displayconsole)console.log(options2);
 
   const [activeItems, setActiveItems] = React.useState<TreeViewDataItem[]>();
   const [filteredItems, setFilteredItems] = React.useState(options);
   const [isFiltered, setIsFiltered] = React.useState(false);
 
+  React.useEffect(() => {
+    setFilteredItems(transformCourseDetails(props.requirement_details));
+  }, [props.requirement_details])
+
+  if(displayconsole)console.log({name:"activeItems", activeItems:activeItems});
+  if(displayconsole)console.log({name:"filteredItems", filteredItems:filteredItems});
+  if(displayconsole)console.log({name:"isFiltered", isFiltered:isFiltered});
+
+  
   const onSelect = (_event: React.MouseEvent, treeViewItem: TreeViewDataItem) => {
     // Ignore folders for selection
     if (treeViewItem && !treeViewItem.children) {
+      if(displayconsole)console.log("active items: "+ activeItems)
       setActiveItems([treeViewItem]);
     }
   };
@@ -78,6 +90,7 @@ export const CourseList: React.FunctionComponent = (props: IProps) => {
       setIsFiltered(false);
     } else {
       const filtered = options.map((opt) => Object.assign({}, opt)).filter((item) => filterItems(item, input));
+      if(displayconsole)console.log({filtered: filtered})
       setFilteredItems(filtered);
       setIsFiltered(true);
     }
@@ -96,6 +109,7 @@ export const CourseList: React.FunctionComponent = (props: IProps) => {
   };
   const toolbar = (
     <Toolbar style={{ padding: 0, width: "100%" }}>
+      {display()==1}
       <ToolbarContent style={{ padding: 0, width: "100%" }}>
         <ToolbarItem widths={{ default: '100%' }}>
           <div className="search-bar">

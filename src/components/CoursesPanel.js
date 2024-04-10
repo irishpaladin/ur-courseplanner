@@ -5,7 +5,7 @@ import { CalendarPanel } from "../components/CalendarPanel";
 import { useState, useEffect } from "react";
 
 export const CoursesPanel = (props) => {
-    const [activeElementId, setActiveElementId] = useState(null);
+    const [activeElementId, setActiveElementId] = useState(-1);
     console.log("I am in CoursesPanel")
     console.log(props.requirementDetails);
     console.log(props.activeElementId);
@@ -15,6 +15,7 @@ export const CoursesPanel = (props) => {
     })
     return (
         <div className="courses-container">
+            {console.log("Rendering course panel")}
             <div className="courses-panel panel" style={{ fontSize: "20px", overflowY: "auto" }}>
                 <div className="course-panel-content">
                     <TabbedCourses courses={courses} activeElementId={activeElementId}/>

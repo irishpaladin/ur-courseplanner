@@ -333,3 +333,13 @@ code {
   margin: auto;
   padding: 8px 5px 0 0;
 }
+#empty-courselist {
+  padding: 10%;
+  font-size: .9rem;
+  text-align: center;
+}
+.empty-data-message {
+  padding: 10%;
+  font-size: .9rem;
+  text-align: center;
+}

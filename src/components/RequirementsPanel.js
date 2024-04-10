@@ -10,6 +10,7 @@ export const RequirementsPanel = () => {
     setUserId(1);
 
     const [activeElementId, setActiveElement] = useState(-1);
+    const [re, setRe] = useState();
     let requirementDetails = null;
     //const {  requirements, setRequirements, activeRequirementId, setActiveRequriementId } = useContext(RequirementsContext);
     const updateActiveElement = (id) => {
@@ -17,8 +18,8 @@ export const RequirementsPanel = () => {
         setActiveElement(activeElementId !== id ? id : -1);
         //setActiveRequriementId(activeElementId);
     }
-    const requirementsList = useCallback(() => {
-        let r = FetchRequirementDataByUserId(userId);
+    let r = FetchRequirementDataByUserId(userId);
+    const requirementsList = () => {
         if (r != null) {
             //setRequirements(r.data);
             requirementDetails = r.data;
@@ -39,9 +40,9 @@ export const RequirementsPanel = () => {
         }
         else {
             console.log('Null at RequirementsContextProvider fetchRequirementsData')
-            return (<p>No Requirements List Found on your Account</p>)
+            return (<div className="empty-data-message"><p>No Requirements List Found on your Account</p></div>)
         }
-    })
+    }
 
     return (
         <div className="requirements-container">

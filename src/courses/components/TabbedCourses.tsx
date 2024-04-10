@@ -6,17 +6,22 @@ import { CourseList } from "./CourseList";
 import { FilteredCourseList } from "./FilteredCourseList";
 interface IProps {
   courses: object,
-  activeElementId: Int16Array
+  activeElementId: number
 };
 
+function display() {
+  console.log("Rendering TableCourses");
+  return 1;
+}
 export const TabbedCourses: React.FunctionComponent = (props: IProps) => {
-  const [activeElementId, setActiveElementId] = React.useState(null);
+  let displayconsole = false;
+  //setActiveElementId(props.activeElementId);
   console.log("I am in Tabbled Courses");
-  console.log(props.courses);
-  console.log(props.activeElementId);
+  if(displayconsole)console.log(props.courses);
+  if(displayconsole)console.log(props.activeElementId);
   const courseList = props.courses;
   const [activeTabKey, setActiveTabKey] = React.useState<string | number>(0);
-
+  
   // Toggle currently active tab
   const handleTabClick = (
     event: React.MouseEvent<any> | React.KeyboardEvent | MouseEvent,
@@ -30,12 +35,13 @@ export const TabbedCourses: React.FunctionComponent = (props: IProps) => {
   );
   if(props.courses==null)
     return(
-      <div>
+      <div id="empty-courselist">
         <p>Select Requirements on the left to view available courses</p>
       </div>
     );
   return (
     <div>
+      {display()==1}
       <Tabs
         activeKey={activeTabKey}
         onSelect={handleTabClick}
